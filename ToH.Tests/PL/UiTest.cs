@@ -31,8 +31,9 @@ public class UiTest
         // Act
         var uut = new Ui(_controller.Object, screen.Object, _log.Object, _screenFactory.Object);
 
-        // Assert
-        screen.Verify(screen => screen.Init(), Times.Once);
+		// Assert
+		
+	    screen.Verify(screen => screen.Init(), Times.Once);
     }
     
     [Fact]
@@ -43,9 +44,9 @@ public class UiTest
         
         // Act
         _uut.Update();
-        
-        // Assert
-        _screen.Verify(screen => screen.None(It.Is<Ui>(ui => ui.Equals(_uut))), Times.Once);
+
+		// Assert
+		_screen.Verify(screen => screen.None(It.Is<Ui>(ui => ui.Equals(_uut))), Times.Once);
     }
     
     [Fact]
