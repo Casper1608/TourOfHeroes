@@ -9,7 +9,7 @@ namespace ToH.Tests.Screens;
 
 public class UiTest
 {
-    private readonly Ui uut;
+    private readonly Ui _uut;
     private Mock<Controller> _controller;
     private Mock<Screen?> _screen;
     private Mock<ILog> _log;
