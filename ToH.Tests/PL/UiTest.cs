@@ -21,7 +21,7 @@ public class UiTest
         _screen = new Mock<Screen?>();
         _log = new Mock<ILog>();
         _screenFactory = new Mock<IScreenFactory>();
-        uut = new Ui(_controller.Object, _screen.Object, _log.Object, _screenFactory.Object);
+        _uut = new Ui(_controller.Object, _screen.Object, _log.Object, _screenFactory.Object);
     }
 
     [Fact]
@@ -42,10 +42,10 @@ public class UiTest
         _controller.Setup(controller => controller.Action).Returns(Action.None);
         
         // Act
-        uut.Update();
+        _uut.Update();
         
         // Assert
-        _screen.Verify(screen => screen.None(It.Is<Ui>(ui => ui.Equals(uut))), Times.Once);
+        _screen.Verify(screen => screen.None(It.Is<Ui>(ui => ui.Equals(_uut))), Times.Once);
     }
     
     [Fact]
@@ -55,10 +55,10 @@ public class UiTest
         _controller.Setup(controller => controller.Action).Returns(Action.Down);
         
         // Act
-        uut.Update();
+        _uut.Update();
         
         // Assert
-        _screen.Verify(screen => screen.Down(It.Is<Ui>(ui => ui.Equals(uut))), Times.Once);
+        _screen.Verify(screen => screen.Down(It.Is<Ui>(ui => ui.Equals(_uut))), Times.Once);
     }
     
     [Fact]
@@ -68,10 +68,10 @@ public class UiTest
         _controller.Setup(controller => controller.Action).Returns(Action.Up);
         
         // Act
-        uut.Update();
+        _uut.Update();
         
         // Assert
-        _screen.Verify(screen => screen.Up(It.Is<Ui>(ui => ui.Equals(uut))), Times.Once);
+        _screen.Verify(screen => screen.Up(It.Is<Ui>(ui => ui.Equals(_uut))), Times.Once);
     }
     
     [Fact]
@@ -81,10 +81,10 @@ public class UiTest
         _controller.Setup(controller => controller.Action).Returns(Action.Enter);
         
         // Act
-        uut.Update();
+        _uut.Update();
         
         // Assert
-        _screen.Verify(screen => screen.Enter(It.Is<Ui>(ui => ui.Equals(uut))), Times.Once);
+        _screen.Verify(screen => screen.Enter(It.Is<Ui>(ui => ui.Equals(_uut))), Times.Once);
     }
 
 }
